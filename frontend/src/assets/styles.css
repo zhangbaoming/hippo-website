@@ -253,10 +253,52 @@ ul {
 }
 
 .hero-title {
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 24px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.title-line {
+    display: block;
+    background: linear-gradient(135deg, #0066ff 0%, #00ccaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 28px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: white;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #0066ff, #00ccaa);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
 }
 
 /* Page Hero (for sub-pages) */

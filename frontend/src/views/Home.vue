@@ -36,34 +36,18 @@
       <div class="hero-bg"></div>
       <div class="container">
         <div class="hero-content">
-          <div class="hero-badge">AI · 大数据 · 云计算</div>
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            AI · 大数据 · 云计算
+          </div>
           <h1 class="hero-title">
             <span class="title-line">北京千面科技有限公司</span>
-            <span class="title-sub">让科技更有温度</span>
           </h1>
+          <p class="hero-subtitle">让科技更有温度</p>
           <p class="hero-desc">
             致力于人工智能技术的创新与应用，以大数据和云计算为核心，<br>
-            为企业客户提供智能化解决方案，赋能数字化转型。<br>
-            <span class="highlight">，助力企业腾飞，创造美好未来</span>
+            为企业客户提供智能化解决方案，赋能数字化转型。
           </p>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">8+</span>
-              <span class="stat-label">年行业经验</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">100+</span>
-              <span class="stat-label">企业客户</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">解决方案</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">98%</span>
-              <span class="stat-label">客户满意度</span>
-            </div>
-          </div>
           <div class="hero-cta">
             <router-link to="/contact" class="btn btn-primary">联系我们</router-link>
             <router-link to="/services" class="btn btn-outline">了解更多</router-link>
@@ -73,31 +57,37 @@
           <div class="hero-graphic">
             <svg viewBox="0 0 400 400" class="hero-svg">
               <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#0066ff;stop-opacity:0.8" />
-                  <stop offset="100%" style="stop-color:#00ccaa;stop-opacity:0.8" />
-                </linearGradient>
-                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#0066ff" />
-                  <stop offset="100%" style="stop-color:#00ccaa" />
+                <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0066ff;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#00ccaa;stop-opacity:1" />
                 </linearGradient>
               </defs>
-              <rect x="60" y="60" width="280" height="280" rx="20" fill="url(#grad1)" opacity="0.1"/>
-              <rect x="80" y="80" width="240" height="240" rx="16" fill="white" opacity="0.9"/>
-              <circle cx="200" cy="180" r="50" fill="url(#grad2)" opacity="0.2"/>
-              <text x="200" y="175" text-anchor="middle" fill="#0066ff" font-size="36" font-weight="bold">千面</text>
-              <text x="200" y="210" text-anchor="middle" fill="#00ccaa" font-size="20" font-weight="500">科技</text>
-              <rect x="100" y="250" width="200" height="8" rx="4" fill="#0066ff" opacity="0.3"/>
-              <rect x="100" y="270" width="160" height="8" rx="4" fill="#00ccaa" opacity="0.3"/>
-              <rect x="100" y="290" width="180" height="8" rx="4" fill="#0066ff" opacity="0.3"/>
-              <circle cx="320" cy="100" r="30" fill="#0066ff" opacity="0.1">
-                <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+              <!-- Background circles -->
+              <circle cx="200" cy="200" r="160" fill="#f0f5ff"/>
+              <circle cx="200" cy="200" r="130" fill="url(#heroGrad)" opacity="0.1"/>
+              <circle cx="200" cy="200" r="100" fill="url(#heroGrad)" opacity="0.2"/>
+              
+              <!-- Inner design -->
+              <circle cx="200" cy="200" r="70" fill="white" stroke="url(#heroGrad)" stroke-width="3"/>
+              <circle cx="200" cy="200" r="50" fill="url(#heroGrad)" opacity="0.3"/>
+              
+              <!-- Center icon - brain/AI -->
+              <path d="M200 160 L220 190 L200 185 L180 190 Z" fill="url(#heroGrad)"/>
+              <circle cx="200" cy="200" r="15" fill="url(#heroGrad)"/>
+              <path d="M185 210 Q200 230 215 210" stroke="url(#heroGrad)" stroke-width="3" fill="none"/>
+              
+              <!-- Orbiting dots -->
+              <circle cx="200" cy="120" r="8" fill="#0066ff">
+                <animate attributeName="cy" values="120;130;120" dur="2s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="80" cy="300" r="20" fill="#00ccaa" opacity="0.1">
-                <animate attributeName="r" values="20;25;20" dur="2.5s" repeatCount="indefinite"/>
+              <circle cx="280" cy="200" r="8" fill="#00ccaa">
+                <animate attributeName="cx" values="280;270;280" dur="2s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="350" cy="250" r="15" fill="#0066ff" opacity="0.15">
-                <animate attributeName="r" values="15;20;15" dur="3s" repeatCount="indefinite"/>
+              <circle cx="200" cy="280" r="8" fill="#0066ff">
+                <animate attributeName="cy" values="280;290;280" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="120" cy="200" r="8" fill="#00ccaa">
+                <animate attributeName="cx" values="120;130;120" dur="2s" repeatCount="indefinite"/>
               </circle>
             </svg>
           </div>
