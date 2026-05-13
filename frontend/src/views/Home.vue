@@ -89,10 +89,36 @@
         </div>
         <div class="services-grid">
           <div class="service-card" v-for="service in services" :key="service.id">
-            <div class="service-icon">
-              <svg viewBox="0 0 48 48" fill="none">
+            <div class="service-icon" :class="'icon-' + service.id">
+              <svg v-if="service.id === 1" viewBox="0 0 48 48" fill="none">
                 <path d="M24 4L4 14v20l20 10 20-10V14L24 4z" stroke="currentColor" stroke-width="2"/>
                 <path d="M24 14v20M14 14l10 5v10M34 14l-10 5v10" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <svg v-else-if="service.id === 2" viewBox="0 0 48 48" fill="none">
+                <rect x="6" y="12" width="36" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 18h36M18 12v24" stroke="currentColor" stroke-width="2"/>
+                <circle cx="30" cy="30" r="6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <svg v-else-if="service.id === 3" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 6v6M24 36v6M6 24h6M36 24h6" stroke="currentColor" stroke-width="2"/>
+                <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <svg v-else-if="service.id === 4" viewBox="0 0 48 48" fill="none">
+                <rect x="4" y="8" width="40" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 16h40" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                <path d="M16 28l4-4 4 4 4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <svg v-else-if="service.id === 5" viewBox="0 0 48 48" fill="none">
+                <path d="M8 40V20l16-12 16 12v20" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 20h40" stroke="currentColor" stroke-width="2"/>
+                <path d="M18 40v-8h12v8" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <svg v-else viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 6v6l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="3" fill="currentColor"/>
               </svg>
             </div>
             <h3>{{ service.title }}</h3>

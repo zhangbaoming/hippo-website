@@ -336,6 +336,13 @@ ul {
     color: var(--primary-color);
 }
 
+.service-icon.icon-1 svg { color: #0066ff; }
+.service-icon.icon-2 svg { color: #00ccaa; }
+.service-icon.icon-3 svg { color: #ff6b35; }
+.service-icon.icon-4 svg { color: #9333ea; }
+.service-icon.icon-5 svg { color: #0891b2; }
+.service-icon.icon-6 svg { color: #dc2626; }
+
 .service-card h3 {
     font-size: 22px;
     font-weight: 600;
