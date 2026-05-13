@@ -94,65 +94,6 @@
       </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">联系我们</span>
-          <h2 class="section-title">联系我们</h2>
-          <p class="section-desc">期待与您的合作，欢迎随时联系我们</p>
-        </div>
-        <div class="contact-content">
-          <div class="contact-info">
-            <div class="info-item">
-              <div class="info-icon">📍</div>
-              <div class="info-content">
-                <h4>公司地址</h4>
-                <p>北京市海淀区中关村科技园</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">📧</div>
-              <div class="info-content">
-                <h4>邮箱</h4>
-                <p>contact@qianmian-tech.com</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">📱</div>
-              <div class="info-content">
-                <h4>电话</h4>
-                <p>010-12345678</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">🌐</div>
-              <div class="info-content">
-                <h4>官网</h4>
-                <p>www.qianmian-tech.com</p>
-              </div>
-            </div>
-          </div>
-          <form class="contact-form" @submit.prevent="handleSubmit">
-            <h3>在线留言</h3>
-            <div class="form-group">
-              <input v-model="form.name" type="text" placeholder="您的姓名" required>
-            </div>
-            <div class="form-group">
-              <input v-model="form.email" type="email" placeholder="您的邮箱" required>
-            </div>
-            <div class="form-group">
-              <input v-model="form.phone" type="tel" placeholder="联系电话">
-            </div>
-            <div class="form-group">
-              <textarea v-model="form.message" placeholder="请输入您的留言内容" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">提交留言</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -197,32 +138,15 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { getPartners, submitContact } from '@/api'
+import { getPartners } from '@/api'
 
 const isScrolled = ref(false)
 const showMobileMenu = ref(false)
 
 const partners = ref([])
 
-const form = ref({
-  name: '',
-  email: '',
-  phone: '',
-  message: ''
-})
-
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
-}
-
-const handleSubmit = async () => {
-  try {
-    await submitContact(form.value)
-    alert('留言提交成功！')
-    form.value = { name: '', email: '', phone: '', message: '' }
-  } catch (e) {
-    console.error(e)
-  }
 }
 
 onMounted(async () => {
