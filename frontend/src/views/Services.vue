@@ -16,13 +16,63 @@
       </div>
     </nav>
 
-    <section class="services" style="padding-top: 120px;">
+    <!-- Hero Banner -->
+    <section class="page-hero">
+      <div class="hero-bg"></div>
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">业务范围</span>
-          <h1 class="section-title">我们的服务</h1>
-          <p class="section-desc">基于前沿技术，为客户提供全面的智能化解决方案</p>
+        <div class="hero-content">
+          <span class="hero-badge">业务范围</span>
+          <h1 class="hero-title">我们的服务</h1>
+          <p class="hero-desc">基于前沿技术，为客户提供全面的智能化解决方案，助力企业数字化转型</p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">6</span>
+              <span class="stat-label">核心服务</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">技术能力</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">客户案例</span>
+            </div>
+          </div>
         </div>
+        <div class="hero-visual">
+          <div class="hero-graphic">
+            <svg viewBox="0 0 400 300">
+              <defs>
+                <linearGradient id="pg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0066ff;stop-opacity:0.9" />
+                  <stop offset="100%" style="stop-color:#00ccaa;stop-opacity:0.9" />
+                </linearGradient>
+              </defs>
+              <rect x="40" y="30" width="320" height="240" rx="16" fill="url(#pg1)" opacity="0.15"/>
+              <rect x="60" y="50" width="280" height="200" rx="12" fill="white" opacity="0.95"/>
+              <circle cx="150" cy="130" r="35" fill="#0066ff" opacity="0.2"/>
+              <circle cx="150" cy="130" r="25" fill="#0066ff"/>
+              <text x="150" y="138" text-anchor="middle" fill="white" font-size="24" font-weight="bold">AI</text>
+              <circle cx="250" cy="130" r="35" fill="#00ccaa" opacity="0.2"/>
+              <circle cx="250" cy="130" r="25" fill="#00ccaa"/>
+              <text x="250" y="138" text-anchor="middle" fill="white" font-size="20" font-weight="bold">Data</text>
+              <rect x="85" y="190" width="230" height="30" rx="6" fill="#f0f5ff"/>
+              <rect x="95" y="200" width="120" height="10" rx="5" fill="#0066ff" opacity="0.3"/>
+              <rect x="95" y="215" width="180" height="10" rx="5" fill="#00ccaa" opacity="0.3"/>
+              <circle cx="60" cy="270" r="40" fill="#0066ff" opacity="0.1">
+                <animate attributeName="r" values="40;50;40" dur="3s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="340" cy="40" r="30" fill="#00ccaa" opacity="0.1">
+                <animate attributeName="r" values="30;40;30" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services services-list">
+      <div class="container">
 
         <div class="services-grid">
           <div class="service-card" v-for="service in services" :key="service.id">

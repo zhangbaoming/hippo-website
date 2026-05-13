@@ -259,6 +259,51 @@ ul {
     margin-bottom: 24px;
 }
 
+/* Page Hero (for sub-pages) */
+.page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f5ff 50%, #e8f4ff 100%);
+    padding-top: var(--navbar-height);
+}
+
+.page-hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 60px 24px;
+}
+
+.page-hero .hero-title {
+    font-size: 48px;
+}
+
+.page-hero .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.page-hero .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-hero .hero-graphic {
+    width: 100%;
+    max-width: 400px;
+}
+
+.page-hero .hero-graphic svg {
+    width: 100%;
+    height: auto;
+}
+
 .title-line {
     display: block;
     background: linear-gradient(135deg, #0066ff 0%, #00ccaa 100%);
@@ -342,6 +387,10 @@ ul {
 .services {
     padding: 120px 0;
     background: var(--bg-secondary);
+}
+
+.services-list {
+    padding-top: 60px;
 }
 
 .services-grid {
