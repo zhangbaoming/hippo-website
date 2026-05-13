@@ -79,98 +79,6 @@
       </div>
     </section>
 
-    <!-- Services Preview -->
-    <section class="services" id="services">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">业务范围</span>
-          <h2 class="section-title">我们的服务</h2>
-          <p class="section-desc">基于前沿技术，为客户提供全面的智能化解决方案</p>
-        </div>
-        <div class="services-grid">
-          <div class="service-card" v-for="service in services" :key="service.id">
-            <div class="service-icon" :class="'icon-' + service.id">
-              <svg v-if="service.id === 1" viewBox="0 0 48 48" fill="none">
-                <path d="M24 4L4 14v20l20 10 20-10V14L24 4z" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 14v20M14 14l10 5v10M34 14l-10 5v10" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <svg v-else-if="service.id === 2" viewBox="0 0 48 48" fill="none">
-                <rect x="6" y="12" width="36" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
-                <path d="M6 18h36M18 12v24" stroke="currentColor" stroke-width="2"/>
-                <circle cx="30" cy="30" r="6" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <svg v-else-if="service.id === 3" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 6v6M24 36v6M6 24h6M36 24h6" stroke="currentColor" stroke-width="2"/>
-                <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <svg v-else-if="service.id === 4" viewBox="0 0 48 48" fill="none">
-                <rect x="4" y="8" width="40" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
-                <path d="M4 16h40" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                <path d="M16 28l4-4 4 4 4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <svg v-else-if="service.id === 5" viewBox="0 0 48 48" fill="none">
-                <path d="M8 40V20l16-12 16 12v20" stroke="currentColor" stroke-width="2"/>
-                <path d="M4 20h40" stroke="currentColor" stroke-width="2"/>
-                <path d="M18 40v-8h12v8" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <svg v-else viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
-                <path d="M24 6v6l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="24" cy="24" r="3" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Solutions Preview -->
-    <section class="solutions" id="solutions">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">解决方案</span>
-          <h2 class="section-title">行业解决方案</h2>
-          <p class="section-desc">深耕多个行业，积累丰富经验，提供专业解决方案</p>
-        </div>
-        <div class="solutions-tabs">
-          <button 
-            v-for="(solutions, category) in groupedSolutions" 
-            :key="category"
-            class="tab-btn"
-            :class="{ active: activeCategory === category }"
-            @click="activeCategory = category"
-          >
-            {{ category }}
-          </button>
-        </div>
-        <div class="solutions-content">
-          <div class="solution-panel active" v-if="currentSolutions">
-            <div class="solution-info">
-              <h3>{{ currentSolutions.title }}</h3>
-              <p>{{ currentSolutions.description }}</p>
-            </div>
-            <div class="solution-visual">
-              <div class="solution-graphic">
-                <svg viewBox="0 0 300 200">
-                  <rect width="300" height="200" fill="#f8fafc"/>
-                  <rect x="20" y="30" width="80" height="60" rx="4" fill="#0066ff" opacity="0.1"/>
-                  <rect x="110" y="30" width="80" height="60" rx="4" fill="#00ccaa" opacity="0.1"/>
-                  <rect x="200" y="30" width="80" height="60" rx="4" fill="#0066ff" opacity="0.1"/>
-                  <circle cx="50" cy="60" r="15" fill="#0066ff"/>
-                  <circle cx="150" cy="60" r="15" fill="#00ccaa"/>
-                  <circle cx="250" cy="60" r="15" fill="#0066ff"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Partners -->
     <section class="partners">
       <div class="container">
@@ -288,15 +196,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { getServices, getSolutions, getPartners, submitContact } from '@/api'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { getPartners, submitContact } from '@/api'
 
 const isScrolled = ref(false)
 const showMobileMenu = ref(false)
-const activeCategory = ref('金融')
 
-const services = ref([])
-const solutions = ref([])
 const partners = ref([])
 
 const form = ref({
@@ -305,18 +210,6 @@ const form = ref({
   phone: '',
   message: ''
 })
-
-const groupedSolutions = computed(() => {
-  const grouped = {}
-  solutions.value.forEach(s => {
-    if (!grouped[s.category]) {
-      grouped[s.category] = s
-    }
-  })
-  return grouped
-})
-
-const currentSolutions = computed(() => groupedSolutions.value[activeCategory.value])
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
@@ -334,27 +227,6 @@ const handleSubmit = async () => {
 
 onMounted(async () => {
   window.addEventListener('scroll', handleScroll)
-  try {
-    const res = await getServices()
-    services.value = res.data || []
-  } catch (e) {
-    services.value = [
-      { id: 1, title: '人工智能', description: '提供机器学习、深度学习、自然语言处理等AI技术解决方案' },
-      { id: 2, title: '大数据', description: '数据采集、存储、分析、可视化一站式服务' },
-      { id: 3, title: '云计算', description: '云架构设计、云迁移、云运维等服务' }
-    ]
-  }
-  try {
-    const res = await getSolutions()
-    solutions.value = res.data || []
-  } catch (e) {
-    solutions.value = [
-      { id: 1, title: '金融行业解决方案', description: '为银行、保险、证券等金融机构提供智能风控、智能客服解决方案', category: '金融' },
-      { id: 2, title: '零售行业解决方案', description: '为零售企业提供智能供应链、会员管理、数据分析等解决方案', category: '零售' },
-      { id: 3, title: '制造业解决方案', description: '为制造企业提供智能制造、工业物联网等解决方案', category: '制造' },
-      { id: 4, title: '医疗健康解决方案', description: '为医疗机构提供智慧医疗、健康管理等解决方案', category: '医疗' }
-    ]
-  }
   try {
     const res = await getPartners()
     partners.value = res.data || []
